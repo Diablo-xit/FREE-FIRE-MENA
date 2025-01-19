@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e2f;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #444;
+      border-radius: 5px;
+      color: white;
+    }
+    button {
+      background-color: #ff5733;
+      border: none;
+      color: white;
+    }
+    button:hover {
+      background-color: #e64e2b;
+    }
+    .info-box {
+      margin-top: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .info-box h2 {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+    .info-box p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choisissez votre téléphone</h1>
+  <select id="phoneSelect">
+    <option value="Samsung Galaxy">Samsung Galaxy</option>
+    <option value="iPhone">iPhone</option>
+    <option value="Xiaomi">Xiaomi</option>
+    <option value="Huawei">Huawei</option>
+    <option value="OnePlus">OnePlus</option>
+    <option value="Oppo">Oppo</option>
+    <option value="Realme">Realme</option>
+    <option value="Vivo">Vivo</option>
+    <option value="Motorola">Motorola</option>
+    <option value="LG">LG</option>
+    <option value="Google Pixel">Google Pixel</option>
+    <option value="Asus">Asus</option>
+    <option value="Sony">Sony</option>
+    <option value="Nokia">Nokia</option>
+    <option value="Lenovo">Lenovo</option>
+    <option value="ZTE">ZTE</option>
+    <option value="Meizu">Meizu</option>
+    <option value="HTC">HTC</option>
+    <option value="Alcatel">Alcatel</option>
+    <option value="Blackberry">Blackberry</option>
+    <option value="Honor">Honor</option>
+    <option value="TCL">TCL</option>
+    <option value="Sharp">Sharp</option>
+    <option value="Infinix">Infinix</option>
+    <option value="Itel">Itel</option>
+    <option value="Techno">Techno</option>
+  </select>
+
+  <button onclick="showSensitivity()">Afficher Sensibilité</button>
+
+  <div class="output" id="output"></div>
+
+  <div class="info-box">
+    <h2>À quoi servent les sensibilités ?</h2>
+    <p>Les réglages de sensibilité sont cruciaux pour votre expérience de jeu. Chaque type de sensibilité (générale, visée avec un point rouge, 2x, 4x, etc.) influence la vitesse de mouvement de la caméra et la précision de vos tirs.</p>
+    <p>En ajustant ces sensibilités, vous pouvez améliorer votre visée, la rapidité de vos actions et la précision lors des combats, vous permettant ainsi de mieux performer dans vos jeux comme Free Fire.</p>
+  </div>
+
+  <script>
+    const sensitivities = {
+      "Samsung Galaxy": {
+        "Générale": 180,
+        "Red Dot": 150,
+        "2x Scope": 160,
+        "4x Scope": 170,
+        "Sniper Scope": 160,
+        "Free Look": 50
+      },
+      "iPhone": {
+        "Générale": 170,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 160,
+        "Sniper Scope": 155,
+        "Free Look": 45
+      },
+      "Xiaomi": {
+        "Générale": 160,
+        "Red Dot": 130,
+        "2x Scope": 140,
+        "4x Scope": 150,
+        "Sniper Scope": 145,
+        "Free Look": 50
+      },
+      "Huawei": {
+        "Générale": 180,
+        "Red Dot": 160,
+        "2x Scope": 165,
+        "4x Scope": 170,
+        "Sniper Scope": 160,
+        "Free Look": 55
+      },
+      "OnePlus": {
+        "Générale": 175,
+        "Red Dot": 145,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Oppo": {
+        "Générale": 180,
+        "Red Dot": 160,
+        "2x Scope": 165,
+        "4x Scope": 170,
+        "Sniper Scope": 160,
+        "Free Look": 55
+      },
+      "Realme": {
+        "Générale": 170,
+        "Red Dot": 150,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Vivo": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 155,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Motorola": {
+        "Générale": 170,
+        "Red Dot": 145,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 55
+      },
+      "LG": {
+        "Générale": 160,
+        "Red Dot": 130,
+        "2x Scope": 140,
+        "4x Scope": 145,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Google Pixel": {
+        "Générale": 180,
+        "Red Dot": 160,
+        "2x Scope": 170,
+        "4x Scope": 175,
+        "Sniper Scope": 160,
+        "Free Look": 50
+      },
+      "Asus": {
+        "Générale": 180,
+        "Red Dot": 155,
+        "2x Scope": 165,
+        "4x Scope": 170,
+        "Sniper Scope": 160,
+        "Free Look": 55
+      },
+      "Sony": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Nokia": {
+        "Générale": 170,
+        "Red Dot": 145,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Lenovo": {
+        "Générale": 180,
+        "Red Dot": 160,
+        "2x Scope": 165,
+        "4x Scope": 170,
+        "Sniper Scope": 160,
+        "Free Look": 55
+      },
+      "ZTE": {
+        "Générale": 170,
+        "Red Dot": 150,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Meizu": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 155,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "HTC": {
+        "Générale": 175,
+        "Red Dot": 150,
+        "2x Scope": 160,
+        "4x Scope": 165,
+        "Sniper Scope": 155,
+        "Free Look": 55
+      },
+      "Alcatel": {
+        "Générale": 160,
+        "Red Dot": 135,
+        "2x Scope": 145,
+        "4x Scope": 150,
+        "Sniper Scope": 140,
+        "Free Look": 50
+      },
+      "Blackberry": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 155,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Honor": {
+        "Générale": 170,
+        "Red Dot": 145,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "TCL": {
+        "Générale": 160,
+        "Red Dot": 135,
+        "2x Scope": 145,
+        "4x Scope": 150,
+        "Sniper Scope": 140,
+        "Free Look": 50
+      },
+      "Sharp": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 155,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Infinix": {
+        "Générale": 160,
+        "Red Dot": 145,
+        "2x Scope": 155,
+        "4x Scope": 160,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Itel": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 155,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      },
+      "Techno": {
+        "Générale": 160,
+        "Red Dot": 140,
+        "2x Scope": 150,
+        "4x Scope": 155,
+        "Sniper Scope": 150,
+        "Free Look": 50
+      }
+    };
+
+    function showSensitivity() {
+      const phone = document.getElementById("phoneSelect").value;
+      const sensitivity = sensitivities[phone];
+
+      let output = `<h3>Sensibilités pour ${phone} :</h3><ul>`;
+      for (const [key, value] of Object.entries(sensitivity)) {
+        output += `<li><strong>${key} :</strong> ${value}</li>`;
+      }
+      output += `</ul>`;
+
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+
+</body>
+</html>

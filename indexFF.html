@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FREE FIRE MENA</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e1e2f, #282846);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      nav {
+        background-color: #333;
+        padding: 20px 20px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin-right: 10px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #ff5733;
+      }
+      
+      b{
+          color:blue;
+      }
+      
+      form {
+        border-radius: 6px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        margin: 20px auto;
+        width: 60%;
+      }
+
+      input {
+        height: 40px;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        background-color: #ff5733;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #e04e2f;
+      }
+
+      h1 {
+        text-align: center;
+        color: rgba(255, 0, 0, 0.6);
+        margin: 20px 0;
+        text-shadow: 2px 2px 4px #000;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 1s forwards;
+        animation-delay: 0.5s;
+      }
+
+      fieldset {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px auto;
+        width: 80%;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      fieldset legend {
+        color: #ff5733;
+        font-weight: bold;
+        padding: 0 10px;
+        text-transform: uppercase;
+      }
+
+      fieldset ul {
+        margin: 10px 20px;
+        padding: 0;
+      }
+
+      fieldset ul li {
+        margin-bottom: 8px;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="indexpropo.html">Sensibilité</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100093259613472">Contact</a></li>
+      </ul>
+    </nav>
+
+    <h1>FREE FIRE MENA GUIDE</h1>
+
+    <fieldset class="animated">
+      <legend>Comment fonctionne le jeu Free Fire ?</legend>
+      <p>Voici une explication détaillée des principaux modes de jeu dans <strong>Free Fire</strong> :</p>
+      <ul>
+        <li><strong>1. Battle Royale :</strong> Mode principal où 50 joueurs s'affrontent pour être le dernier survivant.</li>
+        <li><strong>2. Clash Squad :</strong> Mode 4 contre 4 avec achat d'armes et équipements à chaque manche.</li>
+        <li><strong>3. Lone Wolf :</strong> Duels en 1v1 ou 2v2 sur des cartes restreintes.</li>
+        <li><strong>4. Modes événementiels :</strong> Des modes temporaires comme "Big Head" ou "Zombie Invasion".</li>
+        <li><strong>5. Mode Formation :</strong> Zone d'entraînement sans pression pour tester vos armes et compétences.</li>
+        <li><strong>6. Craftland :</strong> Création et partage de vos propres cartes personnalisées.</li>
+        <li><strong>7. Rampage :</strong> Ajout de super-pouvoirs pour des combats dynamiques.</li>
+      </ul>
+      <p>
+        Chaque mode offre une expérience unique adaptée aux préférences de chaque joueur, qu'il s'agisse de stratégie ou d'action rapide.
+      </p>
+    </fieldset>
+    <form id="commentForm">
+        <b>Commentaires !</b>
+        <input type="text" id="commentInput" placeholder="Envoyer un commentaire...">
+        <br>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <script src="/scripta.js">
+      
+    </script>
+  </body>
+</html>
